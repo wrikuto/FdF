@@ -2,12 +2,12 @@
 NAME		=	fdf
 LIBFT		=	libft/
 GNL			=	get_next_line/
-MLX			=	minilibx/
+MLX			=	minilibx_macos/
 LIBFT_A		=	$(addprefix $(LIBFT), libft.a)
 GNL_A		=	$(addprefix $(GNL), libgnl.a)
 MLX_A		=	$(addprefix $(MLX), libmlx.a)
 
-CC			=	gcc
+CC			=	cc
 INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
@@ -42,7 +42,7 @@ $(MLX_A):
 				@$(MAKE) -s -C $(MLX)
 				@echo "Compiled $(MLX_A)."
 
-bonus:			all
+# bonus:			all
 
 .c.o:
 				@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
