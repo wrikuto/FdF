@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:48:24 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/05 15:09:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/06 16:53:32 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fdf.h"
+#include "../includes/fdf.h"
 
 int	chk_filename(char *str)
 {
@@ -30,4 +30,10 @@ int	chk_arg(int argc, char **argv)
 		write(1, "invaild file name.\n", 19);
 		exit (1);
 	}
+	return (fd)
+}
+
+void	chk_file_data(int fd)
+{
+	
 }

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/06 11:33:07 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/06 16:29:44 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,11 @@
 
 typedef struct s_point
 {
-	double	x1;
-	double	x2;
-	double	y1;
-	double	y2;
-	double	z1;
-	double	z2;
-	double	p_x1;
-	double	p_x2;
-	double	p_y1;
-	double	p_y2;
-	double	p_z1;
-	double	p_z2;
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+	int	reverse;
 }				t_point;
 
 typedef struct s_map
@@ -50,17 +43,30 @@ typedef struct s_map
 	int	z_min;
 }				t_map;
 
-typedef struct s_bres
+typedef struct s_cam
 {
-	double	ex;
-	double	dx;
-	double	Dx;
-	double	xi;
-	double	ey;
-	double	dy;
-	double	Dy;
-	double	yi;
-}		t_bres;
+	int		zoom;
+	double	x_dig;
+	double	y_dig;
+	double	z_dig;
+	float	z_height;
+	int		x_set;
+	int		y_set;
+	int		z_set;
+	int		iso;
+}				t_cam;
+
+// typedef struct s_bres
+// {
+// 	double	ex;
+// 	double	dx;
+// 	double	Dx;
+// 	double	xi;
+// 	double	ey;
+// 	double	dy;
+// 	double	Dy;
+// 	double	yi;
+// }		t_bres;
 
 typedef struct s_fdf
 {
@@ -72,8 +78,8 @@ typedef struct s_fdf
 	int			size_line;
 	int			endian;
 	int			steep;
-	// t_map		*map;
-	// t_camera	*camera;
+	t_map		*map;
+	t_cam		*cam;
 }				t_fdf;
 
 
