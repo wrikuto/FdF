@@ -6,15 +6,15 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/06 16:29:44 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/08 20:29:29 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "get_next_line.h"
-# include "libft.h"
+# include "../get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <errno.h>
@@ -22,16 +22,18 @@
 # include <stdio.h>
 # include <unistd.h>
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 1280
+# define HEIGHT 720
 
 typedef struct s_point
 {
-	int	x;
-	int	y;
-	int	z;
-	int	color;
-	int	reverse;
+	double		x;
+	double		y;
+	double		z;
+	double		vx;
+	double		vy;
+	double		vz;
+	uint32_t	color;
 }				t_point;
 
 typedef struct s_map
@@ -78,9 +80,10 @@ typedef struct s_fdf
 	int			size_line;
 	int			endian;
 	int			steep;
-	t_map		*map;
-	t_cam		*cam;
+	// t_map		*map;
+	// t_cam		*cam;
 }				t_fdf;
 
+void	error_and_exit(const char *str);
 
 #endif

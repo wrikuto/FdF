@@ -6,13 +6,13 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 14:48:44 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/06 16:38:33 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/08 20:29:35 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	display_error_and_exit(const char *str)
+void	error_and_exit(const char *str)
 {
 	ft_putstr_fd(str, 1);
 	exit (1);

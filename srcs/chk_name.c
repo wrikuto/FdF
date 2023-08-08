@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:48:24 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/06 16:53:32 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/08 19:42:15 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	chk_filename(char *str)
 		return (1);
 }
 
+// check argment and name.
 int	chk_arg(int argc, char **argv)
 {
 	int	fd;
@@ -30,10 +31,5 @@ int	chk_arg(int argc, char **argv)
 		write(1, "invaild file name.\n", 19);
 		exit (1);
 	}
-	return (fd)
-}
-
-void	chk_file_data(int fd)
-{
-	
+	return (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/06 16:53:15 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/08 20:29:09 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,26 @@ static t_fdf	*init_fdf(const char *arg)
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (data->img == NULL)
 		display_error_and_exit("failed initializing image.\n");
-	data->map = NULL;
-	data->cam = NULL;
+	// data->map = NULL;
+	// data->cam = NULL;
 	
 	return (data);
 }
 
-static t_map	*init_map(void)
-{
-	t_map	*map;
+// static t_map	*init_map(void)
+// {
+// 	t_map	*map;
 
-	map = malloc(sizeof(t_map));
-	if (map == NULL)
-		display_error_and_exit("failed initializing map");
-	map->height = 0;
-	map->width = 0;
-	map->array = NULL;
-	map->z_max = 0;
-	map->z_min = 0;
-	return (map);
-}
+// 	map = malloc(sizeof(t_map));
+// 	if (map == NULL)
+// 		display_error_and_exit("failed initializing map");
+// 	map->height = 0;
+// 	map->width = 0;
+// 	map->array = NULL;
+// 	map->z_max = 0;
+// 	map->z_min = 0;
+// 	return (map);
+// }
 
 int main(int argc, char **argv)
 {
@@ -60,9 +60,9 @@ int main(int argc, char **argv)
 	if (argv == 2)
 	{
 		data = init_fdf(*argv[1]);
-		data->map = init_map();
+		// data->map = init_map();
 		fd = chk_arg(argv[1]);
-		chk_file_data(fd)
+		chk_file_data(argv[1]);
 	}
 	else
 		display_error_and_exit("invalid arg\n");
