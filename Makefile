@@ -2,7 +2,7 @@
 NAME		=	fdf
 LIBFT		=	libft/
 GNL			=	get_next_line/
-MLX			=	minilibx_macos/
+MLX			=	minilibx/
 LIBFT_A		=	$(addprefix $(LIBFT), libft.a)
 GNL_A		=	$(addprefix $(GNL), libgnl.a)
 MLX_A		=	$(addprefix $(MLX), libmlx.a)
@@ -11,16 +11,11 @@ CC			=	cc
 INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
-SRCS		=	fdf.c \
-				srcs/alg_utils.c \
-				srcs/controls.c \
-				srcs/mouse.c \
-				srcs/keyboard.c \
-				srcs/draw.c \
-				srcs/line_alg.c \
-				srcs/project.c \
-				srcs/parse_map.c \
-				srcs/utils.c \
+SRCS		=	\
+				srcs/chk_file.c \
+				srcs/chk_name.c \
+				srcs/fdf.c \
+				srcs/utils.c
 
 OBJS		=	$(SRCS:%.c=%.o)
 

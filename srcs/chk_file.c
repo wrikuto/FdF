@@ -6,10 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/08 20:36:01 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/08 21:21:56 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/fdf.h"
 
 // count column.
 int	count_col(const char *line, char c)
@@ -49,10 +50,10 @@ int	chk_color_num(char *line)
 	{
 		if (ft_isdigit(line[i]) == 0 || !('a' <=line[i] && line[i] <= 'f') || \
 		!('A' <=line[i] && line[i] <= 'F'))
-			error_and_exit("wrong color value.(expect 0 ~ 9 or a ~ f)\n")
+			error_and_exit("wrong color value.(expect 0 ~ 9 or a ~ f)\n");
 		i++;
 		if (8 < i)
-			error_and_exit("too many color value.\n")
+			error_and_exit("too many color value.\n");
 		line++;
 	}
 	return (i + 2);
@@ -62,10 +63,9 @@ int	chk_color_num(char *line)
 void	chk_num(char *line)
 {
 	int	i;
-	int	count;
 	
 	i = 0;
-	while (line != '\0')
+	while (line[i] != '\0')
 	{
 		while (line[i] == ' ')
 			i++;
@@ -77,9 +77,9 @@ void	chk_num(char *line)
 		}
 		if (line[i] == ',')
 		{
-			if (line[i - 1] == ' ' || line[i + 1])
-				error_and_exit("value is invalid.(error at chk_num)\n")
-			i = chk_color_num(line[i]);
+			if (line[i - 1] == ' ' || line[i + 1] == ' ')
+				error_and_exit("value is invalid.(error at chk_num)\n");
+			i = chk_color_num(&line[i]);
 		}
 	}
 }
@@ -97,6 +97,7 @@ void	chk_file_data(char	*filename)
 	line = get_next_line(fd);
 	chk_num(line);
 	first_line_col = count_col(line, ' ');
+	free(line);
 	while (*line)
 	{
 		line = get_next_line(fd);
@@ -109,5 +110,5 @@ void	chk_file_data(char	*filename)
 	}
 	free(line);
 	if (close(fd) == -1)
-		error_and_exit("failed close at chk_file_data.\n")
+		error_and_exit("failed close at chk_file_data.\n");
 }
