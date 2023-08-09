@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chk_file.c                                         :+:      :+:    :+:   */
+/*   chk_valid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/09 18:40:35 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/09 21:30:30 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-// count column.
 int	count_col(const char *line, char c)
 {
 	int	i;
@@ -36,7 +35,6 @@ int	count_col(const char *line, char c)
 	return (i);
 }
 
-//	色情報がある時
 int	chk_color_num(char *line)
 {
 	int	i;
@@ -46,25 +44,23 @@ int	chk_color_num(char *line)
 	if (line[0] != '0' || (line[1] != 'x' && line[1] != 'X'))
 		error_and_exit("invalid color value.\n");
 	line = line + 2;
-	while (line[i] != ' ')
+	while (line[i] != ' ' && line[i] != '\n' && line[i] != '\0')
 	{
-		if (ft_isdigit(line[i]) == 0 && !('a' <=line[i] && line[i] <= 'f') && \
-		!('A' <=line[i] && line[i] <= 'F'))
+		if (ft_isdigit(line[i]) == 0 && !('a' <= line[i] && line[i] <= 'f') && \
+		!('A' <= line[i] && line[i] <= 'F'))
 			error_and_exit("wrong color value.(expect 0 ~ 9 or a ~ f)\n");
 		i++;
 	}
-	if (i < 6)
+	if (6 < i)
 		error_and_exit("too many color value.\n");
-	else if (6 < i)
-		error_and_exit("too few color value.\n");
-	return (i + 2);
+	return (i + 3);
 }
 
-// 	ファイル内の数値が適正かどうかチェック。
-void	chk_num(char *line)
+// check value
+void	chk_value(char *line)
 {
 	int	i;
-	
+
 	i = 0;
 	while (line[i] != '\0')
 	{
@@ -89,18 +85,20 @@ void	chk_num(char *line)
 	}
 }
 
-// カラムの数とデータが適正か同時にチェック
+// Check for correct number of columns and data
 void	chk_file_data(char	*filename)
 {
 	char	*line;
 	int		fd;
 	int		first_line_col;
-	
+
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		error_and_exit("failed open at chk_file_data.\n");
 	line = get_next_line(fd);
-	chk_num(line);
+	if (line == NULL)
+		error_and_exit("ERROR: no value in file.\n");
+	chk_value(line);
 	first_line_col = count_col(line, ' ');
 	printf("gnl 1: %s\n", line);
 	free(line);
@@ -110,12 +108,11 @@ void	chk_file_data(char	*filename)
 		printf("gnl 2: %s\n", line);
 		if (line == NULL)
 			break ;
-		chk_num(line);
+		chk_value(line);
 		if (first_line_col != count_col(line, ' '))
 			error_and_exit("file data is invalid.\n");
 		free(line);
 	}
-	// free(line);
 	if (close(fd) == -1)
 		error_and_exit("failed close at chk_file_data.\n");
 }

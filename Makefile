@@ -12,8 +12,8 @@ INCLUDE 	=	includes
 CFLAGS		=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM			=	rm -f
 SRCS		=	\
-				srcs/chk_file.c \
-				srcs/chk_name.c \
+				srcs/chk_valid.c \
+				srcs/chk_filename.c \
 				srcs/fdf.c \
 				srcs/utils.c
 
@@ -47,7 +47,11 @@ localclean:
 				@$(RM) $(OBJS)
 				@echo "Removed object files."
 
-clsrc:
+sre:
+				@$(RM) $(SRC_DIR)/*.o;$(MAKE)
+				@echo "remake srcs"
+
+clsr:
 				@$(RM) $(SRC_DIR)/*.o
 				@echo "delete srcs/*.o"
 
@@ -71,4 +75,4 @@ fclean:			localclean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re localclean clsrc bonus
+.PHONY:			all clean fclean re localclean sre clsr bonus
