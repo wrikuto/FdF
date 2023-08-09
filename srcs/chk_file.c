@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/08 21:21:56 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/09 13:06:37 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	chk_file_data(char	*filename)
 	if (fd == -1)
 		error_and_exit("failed open at chk_file_data.\n");
 	line = get_next_line(fd);
+
 	chk_num(line);
 	first_line_col = count_col(line, ' ');
 	free(line);

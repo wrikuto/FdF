@@ -1,4 +1,3 @@
-
 NAME		=	fdf
 LIBFT		=	libft/
 GNL			=	get_next_line/
@@ -6,6 +5,7 @@ MLX			=	minilibx/
 LIBFT_A		=	$(addprefix $(LIBFT), libft.a)
 GNL_A		=	$(addprefix $(GNL), libgnl.a)
 MLX_A		=	$(addprefix $(MLX), libmlx.a)
+SRC_DIR		= 	srcs/
 
 CC			=	cc
 INCLUDE 	=	includes
@@ -47,6 +47,10 @@ localclean:
 				@$(RM) $(OBJS)
 				@echo "Removed object files."
 
+clsrc:
+				@$(RM) $(SRC_DIR)/$(OBJS)
+				@echo "delete srcs/*.o"
+
 clean:			localclean
 				@$(MAKE) clean -s -C $(LIBFT)
 				@echo "Clean libft."
@@ -67,4 +71,4 @@ fclean:			localclean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re localclean bonus
+.PHONY:			all clean fclean re localclean clsrc bonus

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/08 21:28:23 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/08 22:11:17 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+
+
+
+#include<stdio.h>
+
 
 # define WIDTH 1280
 # define HEIGHT 720
