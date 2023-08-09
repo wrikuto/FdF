@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/09 17:23:38 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/09 18:40:35 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	count_col(const char *line, char c)
 	new = 0;
 	if (line == NULL)
 		return (0);
-	while (*line)
+	while (*line != '\n' && *line != '\0')
 	{
 		if (*line != c && new == 0)
 		{
@@ -52,9 +52,11 @@ int	chk_color_num(char *line)
 		!('A' <=line[i] && line[i] <= 'F'))
 			error_and_exit("wrong color value.(expect 0 ~ 9 or a ~ f)\n");
 		i++;
-		if (6 < i)
-			error_and_exit("too many color value.\n");
 	}
+	if (i < 6)
+		error_and_exit("too many color value.\n");
+	else if (6 < i)
+		error_and_exit("too few color value.\n");
 	return (i + 2);
 }
 
@@ -68,10 +70,10 @@ void	chk_num(char *line)
 	{
 		while (line[i] == ' ')
 			i++;
+		if (line[i] == '-' || line[i] == '+')
+			i++;
 		while (line[i] != ' ' && line[i] != ',')
 		{
-			if ((line[i] == '-' || line[i] == '+') && ft_isdigit([i + 1]))
-				i++;
 			if (ft_isdigit(line[i]) == 0 && line[i] != '\n' && line[i] != '\0')
 				error_and_exit("value is invalid.(error at chk_num)\n");
 			i++;
@@ -82,7 +84,7 @@ void	chk_num(char *line)
 		{
 			if (line[i - 1] == ' ' || line[i + 1] == ' ')
 				error_and_exit("value is invalid.(error at chk_num)\n");
-			i = chk_color_num(&line[i]);
+			i = i + chk_color_num(&line[i]);
 		}
 	}
 }
@@ -102,7 +104,7 @@ void	chk_file_data(char	*filename)
 	first_line_col = count_col(line, ' ');
 	printf("gnl 1: %s\n", line);
 	free(line);
-	while (*line)
+	while (1)
 	{
 		line = get_next_line(fd);
 		printf("gnl 2: %s\n", line);
@@ -113,7 +115,7 @@ void	chk_file_data(char	*filename)
 			error_and_exit("file data is invalid.\n");
 		free(line);
 	}
-	free(line);
+	// free(line);
 	if (close(fd) == -1)
 		error_and_exit("failed close at chk_file_data.\n");
 }

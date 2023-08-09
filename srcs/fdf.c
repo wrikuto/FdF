@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/08 21:27:02 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/09 18:08:56 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,13 @@ int main(int argc, char **argv)
 	}
 	else
 		error_and_exit("invalid arg\n");
+	printf("\n\n");
 	return (0);
+}
+
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q fdf");
 }
 
 
