@@ -48,7 +48,7 @@ localclean:
 				@echo "Removed object files."
 
 clsrc:
-				@$(RM) $(SRC_DIR)/$(OBJS)
+				@$(RM) $(SRC_DIR)/*.o
 				@echo "delete srcs/*.o"
 
 clean:			localclean
