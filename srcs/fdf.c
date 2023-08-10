@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/09 18:08:56 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/10 14:56:08 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		printf("argv: %s\n", argv[1]);
 		// data = init_fdf(*argv[1]);
 
 		// data->map = init_map();
@@ -59,7 +60,6 @@ __attribute__((destructor))
 static void destructor() {
     system("leaks -q fdf");
 }
-
 
 // static t_map	*init_map(void)
 // {
