@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 19:15:26 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/04 22:41:08 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:45:26 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

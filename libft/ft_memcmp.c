@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:38:20 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/03 20:29:47 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:42:47 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 {

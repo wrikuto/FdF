@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 13:06:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/05 14:28:55 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:42:39 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static	int	ft_count_digits(int n)
 {

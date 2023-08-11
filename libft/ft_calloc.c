@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:05:09 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/05 17:21:26 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:42:59 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	*ft_calloc(size_t num, size_t size)
 {

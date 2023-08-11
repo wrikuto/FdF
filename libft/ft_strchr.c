@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 20:41:07 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/03 20:32:13 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:43:43 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -39,7 +39,7 @@ char	*ft_strchr(const char *str, int c)
 
 // #include <stdio.h>
 
-// int main() 
+// int main()
 // {
 // 	const char *s = "libft-test-tokyo";
 // 	char *res;

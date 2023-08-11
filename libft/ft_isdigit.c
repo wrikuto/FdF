@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:14:51 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/03 17:38:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:42:56 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

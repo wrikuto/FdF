@@ -17,7 +17,7 @@ int	get_height(char *filename)
 	int		fd;
 	int		height;
 	char	*line;
-	
+
 	height = 0;
 	line = NULL;
 	fd = open(filename, O_RDONLY);
@@ -41,7 +41,7 @@ int	get_width(char *filename)
 	int		fd;
 	int		width;
 	char	*line;
-	
+
 	width = 0;
 	line = NULL;
 	fd = open(filename, O_RDONLY);
@@ -55,42 +55,42 @@ int	get_width(char *filename)
 	return (width);
 }
 
-int	*get_pointdata(char *line, int width, int **array)
-{
-	char	*num;
-	int		i;
-	
-	i = 0;
-	num = ft_split(line, ' ');
-	while (num != '\0' && i < width)
-	{
-		
-	}
-}
+// int	*get_pointdata(char *line, int width, int **array)
+// {
+// 	char	*num;
+// 	int		i;
 
-t_map	*get_mapdata(char *filename, t_map *map)
-{
-	int		i;
-	int		x;
-	int		y;
-	char	*line;
-	
-	i = 0;
-	x = 0;
-	y = 0;
-	map->height = get_height(filename);
-	map->width =  get_width(filename);
-	while (1)
-	{
-		if (line == NULL)
-			break ;
-		while (line[x] != '\n' && line[x] != '\0')
-		{
-			map[y][x] = 
-			i++;
-		}
-		y++;
-	}
+// 	i = 0;
+// 	num = ft_split(line, ' ');
+// 	while (num != '\0' && i < width)
+// 	{
 
-	return (map);
-}
+// 	}
+// }
+
+// t_map	*get_mapdata(char *filename, t_map *map)
+// {
+// 	int		i;
+// 	int		x;
+// 	int		y;
+// 	char	*line;
+
+// 	i = 0;
+// 	x = 0;
+// 	y = 0;
+// 	map->height = get_height(filename);
+// 	map->width =  get_width(filename);
+// 	while (1)
+// 	{
+// 		if (line == NULL)
+// 			break ;
+// 		while (line[x] != '\n' && line[x] != '\0')
+// 		{
+// 			map[y][x] =
+// 			i++;
+// 		}
+// 		y++;
+// 	}
+
+// 	return (map);
+// }

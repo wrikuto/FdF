@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:34:32 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/03 20:24:33 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:42:45 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

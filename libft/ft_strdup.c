@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:46:07 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/05 18:59:00 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:45:26 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {
@@ -35,7 +35,7 @@ char	*ft_strdup(const char *s1)
 
 // #include <stdio.h>
 
-// int main() 
+// int main()
 // {
 // 	const char *str = "Hello world!";
 // 	char *str_copy = ft_strdup(str);

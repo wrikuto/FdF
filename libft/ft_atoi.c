@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:22:18 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/08 21:13:02 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:43:41 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static	int	ft_isspace(const char *str)
 {

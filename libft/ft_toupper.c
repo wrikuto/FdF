@@ -6,11 +6,11 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 17:01:22 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/06/05 12:14:01 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:45:26 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
@@ -20,7 +20,7 @@ int	ft_toupper(int c)
 }
 
 // #include<stdio.h>
-// int main() 
+// int main()
 // 	char c = 'a';
 // 	int result = ft_toupper(c);
 // 	printf("Original character: %c\n", c);

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 21:46:26 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:50:10 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ static t_fdf	*init_fdf(const char *arg)
 	title = ft_strjoin("FdF - ", arg);
 	env = malloc(sizeof(t_fdf));
 	if (env == NULL)
-		display_error_and_exit("malloc error\n");
+		error_and_exit("malloc error\n");
 	env->mlx = mlx_init();
 	if (env->mlx == NULL)
-		display_error_and_exit("failed mlx_init.\n");
+		error_and_exit("failed mlx_init.\n");
 	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, title);
 	if (env->win == NULL)
-		display_error_and_exit("failed initializing window.\n");
+		error_and_exit("failed initializing window.\n");
 	free (title);
 	env->img = mlx_new_image(env->mlx, WIDTH, HEIGHT);
 	if (env->img == NULL)
-		display_error_and_exit("failed initializing image.\n");
+		error_and_exit("failed initializing image.\n");
 	env->addr = mlx_get_data_addr(env->img, &env->bpp, \
 			&env->size_line, &env->endian);
 	env->map = NULL;
@@ -62,14 +62,14 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		env = init_fdf(*argv[1]);
+		env = init_fdf(argv[1]);
 		env->map = init_map();
 		chk_arg(argv[1]);
 		chk_valid(argv[1]);
-		get_mapdata(argv[1], env->map);
-		// printf("height: %d\n", get_height(argv[1]));
-		// printf("width : %d\n", get_width(argv[1]));
-		
+		// get_mapdata(argv[1], env->map);
+		printf("height: %d\n", get_height(argv[1]));
+		printf("width : %d\n", get_width(argv[1]));
+
 	}
 	else
 		error_and_exit("invalid arg\n");
