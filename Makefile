@@ -15,7 +15,8 @@ SRCS		=	\
 				srcs/chk_valid.c \
 				srcs/chk_filename.c \
 				srcs/fdf.c \
-				srcs/utils.c
+				srcs/utils.c \
+				srcs/get_mapdata.c
 
 OBJS		=	$(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 15:05:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/10 17:26:12 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	count_col(const char *line, char c)
 	return (i);
 }
 
-int	chk_color_num(char *line)
+static int	chk_color_num(char *line)
 {
 	int	i;
 
@@ -56,8 +56,7 @@ int	chk_color_num(char *line)
 	return (i + 3);
 }
 
-// check value
-void	chk_value(char *line)
+static void	chk_value(char *line)
 {
 	int	i;
 
@@ -85,8 +84,7 @@ void	chk_value(char *line)
 	}
 }
 
-// Check for correct number of columns and data
-void	chk_file_data(char	*filename)
+void	chk_valid(char	*filename)
 {
 	char	*line;
 	int		fd;
@@ -100,12 +98,10 @@ void	chk_file_data(char	*filename)
 		error_and_exit("ERROR: no value in file.\n");
 	chk_value(line);
 	first_line_col = count_col(line, ' ');
-	printf("gnl 1: %s\n", line);
 	free(line);
 	while (1)
 	{
 		line = get_next_line(fd);
-		printf("gnl 2: %s\n", line);
 		if (line == NULL)
 			break ;
 		chk_value(line);
@@ -116,3 +112,34 @@ void	chk_file_data(char	*filename)
 	if (close(fd) == -1)
 		error_and_exit("failed close at chk_file_data.\n");
 }
+
+// void	chk_file_data(char	*filename)
+// {
+// 	char	*line;
+// 	int		fd;
+// 	int		first_line_col;
+
+// 	fd = open(filename, O_RDONLY);
+// 	if (fd == -1)
+// 		error_and_exit("failed open at chk_file_data.\n");
+// 	line = get_next_line(fd);
+// 	if (line == NULL)
+// 		error_and_exit("ERROR: no value in file.\n");
+// 	chk_value(line);
+// 	first_line_col = count_col(line, ' ');
+// 	printf("gnl 1: %s\n", line);
+// 	free(line);
+// 	while (1)
+// 	{
+// 		line = get_next_line(fd);
+// 		printf("gnl 2: %s\n", line);
+// 		if (line == NULL)
+// 			break ;
+// 		chk_value(line);
+// 		if (first_line_col != count_col(line, ' '))
+// 			error_and_exit("file data is invalid.\n");
+// 		free(line);
+// 	}
+// 	if (close(fd) == -1)
+// 		error_and_exit("failed close at chk_file_data.\n");
+// }

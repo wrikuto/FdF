@@ -6,13 +6,13 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:48:24 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 15:02:47 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/10 15:18:37 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	chk_filename(char *str)
+static int	chk_filename(char *str)
 {
 	str = ft_strrchr(str, '.');
 	if (str != NULL && ft_strncmp(str, ".fdf", 5) == 0)

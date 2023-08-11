@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 12:54:57 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/10 21:45:51 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ typedef struct s_point
 
 typedef struct s_map
 {
-	int	height;
-	int	width;
-	int	***array;
-	int	z_max;
-	int	z_min;
+	int		height;
+	int		width;
+	int		**array;
+	int		z_max;
+	int		z_min;
 }				t_map;
 
 typedef struct s_cam
@@ -82,19 +82,24 @@ typedef struct s_fdf
 	void		*mlx;
 	void		*win;
 	void		*img;
-	char		*data_addr;
+	char		*addr;
 	int			bpp;
 	int			size_line;
 	int			endian;
 	int			steep;
-	// t_map		*map;
+	t_map		*map;
 	// t_cam		*cam;
 }				t_fdf;
 
 // check filename and value.
 void	error_and_exit(char *str);
 void	chk_arg(char *argv);
-void	chk_file_data(char	*filename);
+void	chk_valid(char	*filename);
+int		count_col(const char *line, char c);
+
+
+int		get_height(char *filename);
+int		get_width(char *filename);
 
 
 #endif
