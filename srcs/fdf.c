@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/11 20:50:10 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/12 11:26:35 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int main(int argc, char **argv)
 		printf("height: %d\n", get_height(argv[1]));
 		printf("width : %d\n", get_width(argv[1]));
 
+	free(env->map);
+	free(env)
 	}
 	else
 		error_and_exit("invalid arg\n");
