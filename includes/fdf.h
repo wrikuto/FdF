@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 21:45:51 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/12 13:58:37 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_map
 {
 	int		height;
 	int		width;
-	int		**array;
+	t_point	*point3D;
 	int		z_max;
 	int		z_min;
 }				t_map;

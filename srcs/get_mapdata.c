@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:12:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 21:54:33 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/12 14:01:35 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,20 @@ int	get_width(char *filename)
 // 	}
 // }
 
-// t_map	*get_mapdata(char *filename, t_map *map)
-// {
-// 	int		i;
-// 	int		x;
-// 	int		y;
-// 	char	*line;
+t_map	*get_mapdata(char *filename, t_map *map)
+{
+	int		i;
+	int		x;
+	int		y;
+	char	*line;
 
-// 	i = 0;
-// 	x = 0;
-// 	y = 0;
-// 	map->height = get_height(filename);
-// 	map->width =  get_width(filename);
-// 	while (1)
-// 	{
-// 		if (line == NULL)
-// 			break ;
-// 		while (line[x] != '\n' && line[x] != '\0')
-// 		{
-// 			map[y][x] =
-// 			i++;
-// 		}
-// 		y++;
-// 	}
+	i = 0;
+	x = 0;
+	y = 0;
+	map->height = get_height(filename);
+	map->width = get_width(filename);
+	map->point3D = malloc (sizeof(t_point) * (map->height * map->width));
+	
 
-// 	return (map);
-// }
+	return (map);
+}

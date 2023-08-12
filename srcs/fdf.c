@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/12 11:26:35 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/12 13:58:43 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static	t_map	*init_map(void)
 		error_and_exit("failed initializing map.\n");
 	map->height = 0;
 	map->width = 0;
-	map->array = NULL;
+	map->point3D = NULL;
 	map->z_max = 0;
 	map->z_min = 0;
 	return (map);
@@ -55,9 +55,9 @@ static	t_map	*init_map(void)
 
 // ---------------------------------------------------------------------------
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	printf("\n~~~~~~~~~~~~~~~~| FdF_test |~~~~~~~~~~~~~~~\n\n");
+	printf("\n~~~~~~~~~~~~~~~| FdF_test |~~~~~~~~~~~~~~~~\n\n");
 	t_fdf	*env;
 
 	if (argc == 2)
@@ -70,8 +70,8 @@ int main(int argc, char **argv)
 		printf("height: %d\n", get_height(argv[1]));
 		printf("width : %d\n", get_width(argv[1]));
 
-	free(env->map);
-	free(env)
+
+	exit (0);
 	}
 	else
 		error_and_exit("invalid arg\n");
@@ -86,20 +86,5 @@ static void destructor()
 {
 	printf("\n\n~~~~~~~~~~~~~| CHEKING_LEAKS |~~~~~~~~~~~~~\n\n");
     system("leaks -q fdf");
-	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n--finish--\n\n");
+	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t| finish |\n\n");
 }
-
-// static t_map	*init_map(void)
-// {
-// 	t_map	*map;
-
-// 	map = malloc(sizeof(t_map));
-// 	if (map == NULL)
-// 		display_error_and_exit("failed initializing map");
-// 	map->height = 0;
-// 	map->width = 0;
-// 	map->array = NULL;
-// 	map->z_max = 0;
-// 	map->z_min = 0;
-// 	return (map);
-// }
