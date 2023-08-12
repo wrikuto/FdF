@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/12 13:58:37 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/12 18:47:06 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,8 @@ int		count_col(const char *line, char c);
 int		get_height(char *filename);
 int		get_width(char *filename);
 
+size_t	len_to_space(char *str);
+int	ft_ishex(char c);
+uint32_t	hex_to_num(char	c);
 
 #endif

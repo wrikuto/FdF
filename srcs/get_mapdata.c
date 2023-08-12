@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:12:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/12 14:01:35 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/12 14:49:19 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,33 +55,70 @@ int	get_width(char *filename)
 	return (width);
 }
 
-// int	*get_pointdata(char *line, int width, int **array)
-// {
-// 	char	*num;
-// 	int		i;
-
-// 	i = 0;
-// 	num = ft_split(line, ' ');
-// 	while (num != '\0' && i < width)
-// 	{
-
-// 	}
-// }
-
-t_map	*get_mapdata(char *filename, t_map *map)
+void	*get_pointdata(int fd, t_map *map)
 {
-	int		i;
 	int		x;
 	int		y;
 	char	*line;
 
-	i = 0;
+	x = 0;
+	y = 0;
+	line = NULL;
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		while (line[x] != '\n' && line[x] != '\0')
+		{
+			while (*line == ' ')
+				line++;
+			map->point3D->x = x;
+			map->point3D->y = y;
+			map->point3D->z = ft_atoi(line[x]);
+			while (*line != ',' && *line != ' ')
+				line++;
+			if (*line == ',')
+				
+			x++;
+		}
+		y++;
+	}
+}
+
+
+
+t_map	*get_mapdata(char *filename, t_map *map)
+{
+	int		fd;
+	int		x;
+	int		y;
+	// char	*line;
+
 	x = 0;
 	y = 0;
 	map->height = get_height(filename);
 	map->width = get_width(filename);
+	fd = open(filename, O_RDONLY);
 	map->point3D = malloc (sizeof(t_point) * (map->height * map->width));
-	
-
+	if (map->point3D == NULL || fd == -1)
+		error_and_exit("faild malloc or open. (at get_mapdata)");
+	get_pointdata(fd, map)
+	// while (1)
+	// {
+	// 	line = get_next_line(fd);
+	// 	if (line == NULL)
+	// 		break ;
+	// 	while (line[x] != '\n' && line[x] != '\0')
+	// 	{
+	// 		while (*line == ' ')
+	// 			line++;
+	// 		map->point3D->x = x;
+	// 		map->point3D->y = y;
+	// 		map->point3D->z = ft_atoi(line[x]);
+	// 		x++;
+	// 	}
+	// 	y++;
+	// }
 	return (map);
 }
