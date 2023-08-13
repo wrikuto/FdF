@@ -6,13 +6,13 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:22:36 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/12 21:53:10 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 12:20:04 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	ft_ishex(char c)
+static int	ft_ishex(char c)
 {
 	if (('a' <= c && c <= 'f') || \
 	('A' <= c && c <= 'F'))
@@ -20,7 +20,7 @@ int	ft_ishex(char c)
 	return (0);
 }
 
-uint32_t	hex_to_num(char c)
+static uint32_t	hex_to_num(char c)
 {
 	uint32_t	num;
 
@@ -31,7 +31,7 @@ uint32_t	hex_to_num(char c)
 	return (num);
 }
 
-size_t	len_to_space(char *str)
+static size_t	len_to_space(char *str)
 {
 	size_t	len;
 

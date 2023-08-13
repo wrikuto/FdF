@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/12 13:58:43 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 12:21:29 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static	t_map	*init_map(void)
 	map->height = 0;
 	map->width = 0;
 	map->point3D = NULL;
-	map->z_max = 0;
-	map->z_min = 0;
+	map->z_max = INT_MIN;
+	map->z_min = INT_MAX;
 	return (map);
 }
 
@@ -88,3 +88,6 @@ static void destructor()
     system("leaks -q fdf");
 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t| finish |\n\n");
 }
+
+
+// 	printf("\n");
