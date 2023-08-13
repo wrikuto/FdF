@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:12:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/13 20:06:40 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 21:00:35 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,29 +90,29 @@ static void	store_value(char *line, t_map *map, int y)
 	}
 }
 
-// void	get_zmin_zmax(t_map *map)
-// {
-// 	t_point	*head;
-// 	size_t	len;
+void	get_zmin_zmax(t_map *map)
+{
+	size_t	len;
+	size_t	i;
 
-// 	head = map->point3D;
-// 	len = (map->height * map->width);
-// 	while (0 < len)
-// 	{
-// 		if ((map->point3D->z) < map->z_min)
-// 			map->z_min = map->point3D->z;
-// 		if (map->z_max < (map->point3D->z))
-// 			map->z_max = map->point3D->z;
-// 		len--;
-// 	}
-// }
+	i = 0;
+	len = (map->height * map->width);
+	while (0 < len)
+	{
+		if ((map->point3D[i].z) < map->z_min)
+			map->z_min = map->point3D[i].z;
+		if (map->z_max < (map->point3D[i].z))
+			map->z_max = map->point3D[i].z;
+		i++;
+		len--;
+	}
+}
 
 void	get_mapdata(char *filename, t_map *map)
 {
 	int		fd;
 	int		y;
 	char	*line;
-
 
 	y = 0;
 	line = NULL;
@@ -131,6 +131,7 @@ void	get_mapdata(char *filename, t_map *map)
 		free (line);
 		y++;
 	}
+	get_zmin_zmax(map);
 	if (close(fd) == -1)
 		error_and_exit("failed close. (at get_mapdata)\n");
 }
