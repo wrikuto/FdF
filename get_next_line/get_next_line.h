@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 20:28:55 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/09 13:00:58 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 20:16:14 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include<limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 20000
 # endif
 
 size_t	gnl_strlen(const char *s);

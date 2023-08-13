@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/13 12:21:29 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 19:56:58 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char **argv)
 {
 	printf("\n~~~~~~~~~~~~~~~| FdF_test |~~~~~~~~~~~~~~~~\n\n");
 	t_fdf	*env;
+	t_point	*point3D;
 
 	if (argc == 2)
 	{
@@ -67,8 +68,11 @@ int	main(int argc, char **argv)
 		chk_arg(argv[1]);
 		chk_valid(argv[1]);
 		// get_mapdata(argv[1], env->map);
-		printf("height: %d\n", get_height(argv[1]));
-		printf("width : %d\n", get_width(argv[1]));
+		get_mapdata(argv[1], env->map);
+		point3D = env->map->point3D;
+		
+		for (int i = 0; i < (env->map->height * env->map->width); i++)
+			printf("count: %i, X: %f, Y: %f, Z: %f, COL: %d\n", i, point3D[i].x, point3D[i].y, point3D[i].z, point3D[i].color);
 
 
 	exit (0);

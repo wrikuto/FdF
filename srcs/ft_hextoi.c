@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 16:22:36 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/13 12:20:04 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 16:18:22 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static uint32_t	hex_to_num(char c)
 {
 	uint32_t	num;
 
+	num = 0;
 	if (('a' <= c && c <= 'f'))
 		num = c - 87;
 	else if ('A' <= c && c <= 'F')

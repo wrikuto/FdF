@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:12:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/13 12:21:31 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 20:06:40 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,43 @@ static int	get_width(char *filename)
 	line = get_next_line(fd);
 	width = count_col(line, ' ');
 	free(line);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		free(line);
+	}
 	if (close(fd) == -1)
 		error_and_exit("failed close. (at get_width)\n");
 	return (width);
 }
 
-// -------------------
+// -------------------------------------
 
-static void	store_value(char *line, t_point *point3D, int y)
+static void	store_value(char *line, t_map *map, int y)
 {
-	int		x;
+	int			x;
+	static int	s_i = 0;
 
 	x = 0;
-	while (line[x] != '\n' && line[x] != '\0')
+	while (x < map->width)
 	{
-		point3D->x = (double)x;
-		point3D->y = (double)y;
-		point3D->z = (double)ft_atoi(line[x]);
-		while (*line != ',' && *line != ' ')
+		while (*line == ' ')
+			line++;
+		map->point3D[s_i].x = (double)x;
+		map->point3D[s_i].y = (double)y;
+		map->point3D[s_i].z = (double)ft_atoi(line);
+		while (*line != ',' && *line != ' ' && *line != '\n' && *line != '\0')
 			line++;
 		if (*line == ',')
-			point3D->color = ft_hextoi(line);
+			map->point3D[s_i].color = ft_hextoi(line);
 		else
-			point3D->color = 0xFFFFFF;
-		while (*line != ' ')
+			map->point3D[s_i].color = 0xFFFFFF;
+		while (*line != ' ' && *line != '\n' && *line != '\0')
 			line++;
 		x++;
+		s_i++;
 	}
 }
 
@@ -96,14 +107,13 @@ static void	store_value(char *line, t_point *point3D, int y)
 // 	}
 // }
 
-void	*get_mapdata(char *filename, t_map *map)
+void	get_mapdata(char *filename, t_map *map)
 {
 	int		fd;
 	int		y;
 	char	*line;
 
 
-	printf("\n");
 	y = 0;
 	line = NULL;
 	map->height = get_height(filename);
@@ -117,7 +127,7 @@ void	*get_mapdata(char *filename, t_map *map)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		store_value(line, map->point3D, y);
+		store_value(line, map, y);
 		free (line);
 		y++;
 	}

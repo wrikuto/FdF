@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/13 12:16:01 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/13 16:16:00 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,11 @@ void		chk_valid(char	*filename);
 int			count_col(const char *line, char c);
 
 
-int			get_height(char *filename);
-int			get_width(char *filename);
+// int			get_height(char *filename);
+// int			get_width(char *filename);
 
 uint32_t	ft_hextoi(char *str);
+
+void	get_mapdata(char *filename, t_map *map);
 
 #endif
