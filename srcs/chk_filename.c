@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:48:24 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 15:18:37 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 02:06:53 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static int	chk_filename(char *str)
 	return (0);
 }
 
-// check argment and name.
 void	chk_arg(char *argv)
 {
 	int	fd;

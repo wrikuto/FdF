@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_iso.c                                         :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 13:06:35 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 01:39:16 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 02:10:43 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-static void	put_on_pixel(t_fdf *env, int x, int y, uint32_t color)
-{
-	char	*dst;
-
-	dst = env->addr + (y * env->size_line + x * (env->bpp / 8));
-	*(uint32_t *)dst = color;
-}
 
 static uint32_t	add_diff_color(uint32_t color, t_line prm, size_t count)
 {
@@ -36,8 +28,6 @@ static uint32_t	add_diff_color(uint32_t color, t_line prm, size_t count)
 	rtn_color += (next_r << 16) + ((int)(prm.dred * (int)count) << 16);
 	rtn_color += (next_g << 8) + ((int)(prm.dgreen * (int)count) << 8);
 	rtn_color += (next_b) + (int)(prm.dblue * (int)count);
-	printf("RTN_COLOR: %d\n", rtn_color);
-	printf("color_check: %d\n", (color & 0xFF0000));
 	return (rtn_color);
 }
 
@@ -65,7 +55,6 @@ static void	drawing(t_fdf *env, t_line prm, size_t i, size_t next)
 			prm.py += prm.dy;
 		count++;
 	}
-		printf("color_is: %X\n", add_diff_color(point->color, prm, count));
 }
 
 static void	set_color_dif(t_point *point, t_line *prm, size_t i, size_t next)
@@ -90,11 +79,7 @@ static void	set_color_dif(t_point *point, t_line *prm, size_t i, size_t next)
 	prm->dred = (double)prm->lred / (double)i_steps;
 	prm->dgreen = (double)prm->lgreen / (double)i_steps;
 	prm->dblue = (double)prm->lblue / (double)i_steps;
-	printf("chk_col: %d\n", i_steps);
-	printf("COL: %d, %d, %d\n",prm->lred, prm->lgreen, prm->lblue);
-	printf("dif: %f, %f, %f\n\n",prm->dred, prm->dgreen, prm->dblue);
 }
-
 
 static void	set_params(t_fdf *env, t_point *point, size_t i, size_t next)
 {

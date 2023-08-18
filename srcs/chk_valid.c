@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/10 17:26:12 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 02:07:00 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,34 +112,3 @@ void	chk_valid(char	*filename)
 	if (close(fd) == -1)
 		error_and_exit("failed close at chk_file_data.\n");
 }
-
-// void	chk_file_data(char	*filename)
-// {
-// 	char	*line;
-// 	int		fd;
-// 	int		first_line_col;
-
-// 	fd = open(filename, O_RDONLY);
-// 	if (fd == -1)
-// 		error_and_exit("failed open at chk_file_data.\n");
-// 	line = get_next_line(fd);
-// 	if (line == NULL)
-// 		error_and_exit("ERROR: no value in file.\n");
-// 	chk_value(line);
-// 	first_line_col = count_col(line, ' ');
-// 	printf("gnl 1: %s\n", line);
-// 	free(line);
-// 	while (1)
-// 	{
-// 		line = get_next_line(fd);
-// 		printf("gnl 2: %s\n", line);
-// 		if (line == NULL)
-// 			break ;
-// 		chk_value(line);
-// 		if (first_line_col != count_col(line, ' '))
-// 			error_and_exit("file data is invalid.\n");
-// 		free(line);
-// 	}
-// 	if (close(fd) == -1)
-// 		error_and_exit("failed close at chk_file_data.\n");
-// }

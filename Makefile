@@ -19,7 +19,7 @@ SRCS		=	\
 				srcs/get_mapdata.c \
 				srcs/ft_hextoi.c \
 				srcs/trans_data.c \
-				srcs/draw_iso.c
+				srcs/draw_line.c
 
 OBJS		=	$(SRCS:%.c=%.o)
 

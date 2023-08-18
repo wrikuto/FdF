@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 00:53:14 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 02:11:06 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,15 @@ typedef struct s_fdf
 	int			endian;
 	int			steep;
 	t_map		*map;
-	// t_cam		*cam;
 }				t_fdf;
 
-// check filename and value.
 void		error_and_exit(char *str);
 void		chk_arg(char *argv);
 void		chk_valid(char	*filename);
 int			count_col(const char *line, char c);
+
+void	put_on_pixel(t_fdf *env, int x, int y, uint32_t color);
+
 
 uint32_t	ft_abs(int num);
 
