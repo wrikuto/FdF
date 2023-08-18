@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:12:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/17 22:21:44 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 02:14:11 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,10 @@ static int	get_width(char *filename)
 	return (width);
 }
 
-// -------------------------------------
-
 static void	store_value(char *line, t_map *map, int y)
 {
+	static int		s_i = 0;
 	size_t			x;
-	static int	s_i = 0;
 
 	x = 0;
 	while (x < map->width)
