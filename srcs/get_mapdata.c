@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 15:12:38 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/14 14:53:35 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/17 22:21:44 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_height(char *filename)
 {
 	int		fd;
-	int		height;
+	size_t	height;
 	char	*line;
 
 	height = 0;
@@ -39,7 +39,7 @@ static int	get_height(char *filename)
 static int	get_width(char *filename)
 {
 	int		fd;
-	int		width;
+	size_t	width;
 	char	*line;
 
 	width = 0;
@@ -66,7 +66,7 @@ static int	get_width(char *filename)
 
 static void	store_value(char *line, t_map *map, int y)
 {
-	int			x;
+	size_t			x;
 	static int	s_i = 0;
 
 	x = 0;
