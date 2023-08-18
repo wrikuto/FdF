@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:29:29 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/18 16:39:51 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/18 21:22:39 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	trans_data(t_map *map)
 	while (i < (map->height * map->width))
 	{
 		point[i].screen_x = \
-		((point[i].iso_x + (-(map->min_iso_x))) * \
-		(WIDTH / (2 * map->max_iso_x)) * raito) + 50;
+		(((point[i].iso_x + map->max_iso_x) * \
+		(WIDTH / (2 * map->max_iso_x))) * raito) + 50;
 		point[i].screen_y = \
 		(point[i].iso_y + map->max_iso_y) * \
 		(HEIGHT / (2 * map->max_iso_y)) - 100;

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/18 16:27:59 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 00:53:14 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,21 @@
 										#include<stdio.h>
 
 
-# define WIDTH 1080
-# define HEIGHT 960
+# define WIDTH 1280
+# define HEIGHT 920
 # define cos_30 0.86602540378
 # define sin_30 0.52532198881
+
+typedef struct s_rgb
+{
+	uint8_t	red;
+	uint8_t	green;
+	uint8_t	blue;
+	size_t	dr;
+	size_t	dg;
+	size_t	db;
+}				t_rgb;
+
 
 typedef struct s_line
 {
@@ -42,6 +53,12 @@ typedef struct s_line
 	double	dx;
 	double	dy;
 	size_t	steps;
+	int		lred;
+	int		lgreen;
+	int		lblue;
+	double	dred;
+	double	dgreen;
+	double	dblue;
 }				t_line;
 
 typedef struct s_point
@@ -68,31 +85,6 @@ typedef struct s_map
 	int		z_max;
 	int		z_min;
 }				t_map;
-
-// typedef struct s_cam
-// {
-// 	int		zoom;
-// 	double	x_dig;
-// 	double	y_dig;
-// 	double	z_dig;
-// 	float	z_height;
-// 	int		x_set;
-// 	int		y_set;
-// 	int		z_set;
-// 	int		iso;
-// }				t_cam;
-
-// typedef struct s_bres
-// {
-// 	double	ex;
-// 	double	dx;
-// 	double	Dx;
-// 	double	xi;
-// 	double	ey;
-// 	double	dy;
-// 	double	Dy;
-// 	double	yi;
-// }		t_bres;
 
 typedef struct s_fdf
 {
