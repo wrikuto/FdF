@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/18 15:48:30 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/18 16:27:59 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 										#include<stdio.h>
 
 
-# define WIDTH 1280
+# define WIDTH 1080
 # define HEIGHT 960
 # define cos_30 0.86602540378
 # define sin_30 0.52532198881
