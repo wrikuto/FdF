@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 02:11:06 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 17:13:18 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,20 +103,14 @@ void		error_and_exit(char *str);
 void		chk_arg(char *argv);
 void		chk_valid(char	*filename);
 int			count_col(const char *line, char c);
-
-void	put_on_pixel(t_fdf *env, int x, int y, uint32_t color);
-
-
+void		put_on_pixel(t_fdf *env, int x, int y, uint32_t color);
 uint32_t	ft_abs(int num);
-
 uint32_t	ft_hextoi(char *str);
-
 void		get_mapdata(char *filename, t_map *map);
-
-void	trans_data(t_map *map);
-
+void		trans_data(t_map *map);
 void		draw_to_screen(t_fdf *env);
-
-void	draw_line(t_fdf *env);
+void		draw_line(t_fdf *env);
+int			close_win(void *prm);
+int			close_esc(int keycode, t_fdf *env);
 
 #endif

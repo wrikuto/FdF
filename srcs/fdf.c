@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/17 22:22:47 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 22:51:33 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static t_fdf	*init_fdf(const char *arg)
 	env->addr = mlx_get_data_addr(env->img, &(env->bpp), \
 			&(env->size_line), &(env->endian));
 	env->map = NULL;
-	// data->cam = NULL;
 	return (env);
 }
 
@@ -57,14 +56,9 @@ static	t_map	*init_map(void)
 	return (map);
 }
 
-// ---------------------------------------------------------------------------
-
-
 int	main(int argc, char **argv)
 {
-	printf("\n~~~~~~~~~~~~~~~| FdF_test |~~~~~~~~~~~~~~~~\n\n");
 	t_fdf	*env;
-	t_point	*point3D;
 
 	if (argc == 2)
 	{
@@ -73,73 +67,31 @@ int	main(int argc, char **argv)
 		env = init_fdf(argv[1]);
 		env->map = init_map();
 		get_mapdata(argv[1], env->map);
-		point3D = env->map->point3D;
-		printf("grid:\n");
-		for (size_t i = 0; i < (env->map->height * env->map->width); i++)
-			printf("count: %zu, X: %f, Y: %f, Z: %f, COL: %d\n", i, point3D[i].x, point3D[i].y, point3D[i].z, point3D[i].color);
 		trans_data(env->map);
-		printf("\niso:\n");
-		for (size_t j = 0; j < (env->map->height * env->map->width); j++)
-			printf("count: %zu, X: %f, Y: %f\n", j, point3D[j].iso_x, point3D[j].iso_y);
-		printf("\n");
-		printf("\nscreen:\n");
-		for (size_t k = 0; k < (env->map->height * env->map->width); k++)
-			printf("count: %zu, X: %f, Y: %f\n", k, point3D[k].screen_x, point3D[k].screen_y);
-		// draw_to_screen(env);
+		mlx_key_hook(env->win, close_esc, env);
+		mlx_hook(env->win, 17, 0, close_win, env);
 		draw_line(env);
 		mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 		mlx_loop(env->mlx);
-	exit (0);
 	}
 	else
 		error_and_exit("invalid arg\n");
-	// printf("\n\n");
 	return (0);
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	printf("\n~~~~~~~~~~~~~~~| FdF_test |~~~~~~~~~~~~~~~~\n\n");
-// 	t_fdf	*env;
-// 	// t_point	*point3D;
-
-// 	if (argc == 2)
-// 	{
-// 		chk_arg(argv[1]);
-// 		chk_valid(argv[1]);
-// 		env = init_fdf(argv[1]);
-// 		env->map = init_map();
-// 		get_mapdata(argv[1], env->map);
-// 		trans_data(env->map);
-// 		draw_to_screen(env);
-// 		mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-// 		mlx_loop(env->mlx);
-// 		exit (0);
-// 	}
-// 	else
-// 		error_and_exit("invalid arg\n");
-// 	// printf("\n\n");
-// 	return (0);
-// }
-
-// ---------------------------------------------------------------------------
-
 __attribute__((destructor))
-static void destructor()
+static void	destructor()
 {
 	printf("\n\n~~~~~~~~~~~~~| CHEKING_LEAKS |~~~~~~~~~~~~~\n\n");
     system("leaks -q fdf");
 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t| finish |\n\n");
 }
 
-
-// 	printf("\n");
-
 // int	main(int argc, char **argv)
 // {
 // 	printf("\n~~~~~~~~~~~~~~~| FdF_test |~~~~~~~~~~~~~~~~\n\n");
 // 	t_fdf	*env;
-// 	// t_point	*point3D;
+// 	t_point	*point3D;
 
 // 	if (argc == 2)
 // 	{
@@ -148,25 +100,37 @@ static void destructor()
 // 		env = init_fdf(argv[1]);
 // 		env->map = init_map();
 // 		get_mapdata(argv[1], env->map);
-// 		// point3D = env->map->point3D;
-// 		// printf("grid:\n");
-// 		// for (int i = 0; i < (env->map->height * env->map->width); i++)
-// 		// 	printf("count: %d, X: %f, Y: %f, Z: %f, COL: %d\n", i, point3D[i].x, point3D[i].y, point3D[i].z, point3D[i].color);
+// 		point3D = env->map->point3D;
+// 		printf("grid:\n");
+// 		for (size_t i = 0; i < (env->map->height * env->map->width); i++)
+// 			printf("count: %zu, X: %f, Y: %f, Z: %f, 
+//	COL: %d\n", i, point3D[i].x, point3D[i].y, point3D[i].z, point3D[i].color);
 // 		trans_data(env->map);
-// 		// printf("\niso:\n");
-// 		// for (int j = 0; j < (env->map->height * env->map->width); j++)
-// 		// 	printf("count: %d, X: %f, Y: %f\n", j, point3D[j].iso_x, point3D[j].iso_y);
-// 		// printf("\n");
-// 		// printf("\nscreen:\n");
-// 		// for (int k = 0; k < (env->map->height * env->map->width); k++)
-// 		// 	printf("count: %d, X: %f, Y: %f\n", k, point3D[k].screen_x, point3D[k].screen_y);
+// 		printf("\niso:\n");
+// 		for (size_t j = 0; j < (env->map->height * env->map->width); j++)
+// 			printf("count: %zu, X: %f, Y: %f\n", 
+//	j, point3D[j].iso_x, point3D[j].iso_y);
+// 		printf("\n");
+// 		printf("\nscreen:\n");
+// 		for (size_t k = 0; k < (env->map->height * env->map->width); k++)
+// 			printf("count: %zu, X: %f, Y: %f\n", 
+//	k, point3D[k].screen_x, point3D[k].screen_y);
 // 		draw_to_screen(env);
+// 		mlx_key_hook(env->win, close_esc, env);
+// 		mlx_hook(env->win, 17, 0, close_win, env);
+// 		draw_line(env);
 // 		mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 // 		mlx_loop(env->mlx);
-// 	exit (0);
 // 	}
 // 	else
 // 		error_and_exit("invalid arg\n");
-// 	// printf("\n\n");
 // 	return (0);
+// }
+
+// __attribute__((destructor))
+// static void destructor()
+// {
+// 	printf("\n\n~~~~~~~~~~~~~| CHEKING_LEAKS |~~~~~~~~~~~~~\n\n");
+//     system("leaks -q fdf");
+// 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t| finish |\n\n");
 // }
