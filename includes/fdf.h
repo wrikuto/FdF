@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 17:13:18 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/19 23:36:39 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ typedef struct s_map
 	size_t	height;
 	size_t	width;
 	t_point	*point3D;
-	double	max_iso_x;
-	double	min_iso_x;
-	double	max_iso_y;
-	double	min_iso_y;
+	double	max_ix;
+	double	min_ix;
+	double	max_iy;
+	double	min_iy;
 	int		z_max;
 	int		z_min;
 }				t_map;
