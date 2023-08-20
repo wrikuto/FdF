@@ -41,15 +41,9 @@ $(MLX_A):
 				@$(MAKE) -s -C $(MLX)
 				@echo "Compiled $(MLX_A)."
 
-# bonus:			all
-
 .c.o:
 				@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 				@echo "Compiling $<."
-
-localclean:
-				@$(RM) $(OBJS)
-				@echo "Removed object files."
 
 sre:
 				@$(RM) $(SRC_DIR)/*.o;$(MAKE)
@@ -59,7 +53,7 @@ clsr:
 				@$(RM) $(SRC_DIR)/*.o
 				@echo "delete srcs/*.o"
 
-clean:			localclean
+clean:			clsr
 				@$(MAKE) clean -s -C $(LIBFT)
 				@echo "Clean libft."
 				@$(MAKE) clean -s -C $(GNL)
@@ -67,7 +61,7 @@ clean:			localclean
 				@$(MAKE) clean -s -C $(MLX)
 				@echo "Clean mlx."
 
-fclean:			localclean
+fclean:			clsr
 				@$(MAKE) fclean -s -C $(LIBFT)
 				@echo "Full clean libft."
 				@$(MAKE) fclean -s -C $(GNL)
@@ -80,3 +74,7 @@ fclean:			localclean
 re:				fclean all
 
 .PHONY:			all clean fclean re localclean sre clsr bonus
+
+# localclean:
+# 				@$(RM) $(OBJS)
+# 				@echo "Removed object files."

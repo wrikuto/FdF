@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:55:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/20 15:29:37 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/20 15:49:42 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int	main(int argc, char **argv)
 		env->map = init_map();
 		get_mapdata(argv[1], env->map);
 		trans_data(env->map);
-		mlx_key_hook(env->win, close_esc, env);
-		mlx_hook(env->win, 17, 0, close_win, env);
 		draw_line(env);
 		mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
+		mlx_key_hook(env->win, close_esc, env);
+		mlx_hook(env->win, 17, 0, close_win, env);
 		mlx_loop(env->mlx);
 	}
 	else
@@ -80,9 +80,7 @@ int	main(int argc, char **argv)
 // __attribute__((destructor))
 // static void	destructor()
 // {
-// 	printf("\n\n~~~~~~~~~~~~~| CHEKING_LEAKS |~~~~~~~~~~~~~\n\n");
 //     system("leaks -q fdf");
-// 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t| finish |\n\n");
 // }
 
 // int	main(int argc, char **argv)
