@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:48:24 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 02:06:53 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/20 14:27:06 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	chk_arg(char *argv)
 	if (fd < 0 || chk_filename(argv) == 0)
 	{
 		close (fd);
-		write(1, "invaild file name.\n", 19);
-		exit (1);
+		error_and_exit("ERROR: Invaild file name.\n");
 	}
 	close(fd);
 }

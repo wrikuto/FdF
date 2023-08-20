@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 23:36:39 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/20 14:58:17 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@
 # include <stdint.h>
 # include <float.h>
 
-
-										#include<stdio.h>
-
-
 # define WIDTH 1280
 # define HEIGHT 920
-# define cos_30 0.86602540378
-# define sin_30 0.52532198881
+# define RATE 1.3913043478
+# define COS_30 0.86602540378
+# define SIN_30 0.52532198881
 
 typedef struct s_rgb
 {
@@ -42,7 +39,6 @@ typedef struct s_rgb
 	size_t	dg;
 	size_t	db;
 }				t_rgb;
-
 
 typedef struct s_line
 {
@@ -77,13 +73,13 @@ typedef struct s_map
 {
 	size_t	height;
 	size_t	width;
-	t_point	*point3D;
+	t_point	*point3d;
 	double	max_ix;
 	double	min_ix;
 	double	max_iy;
 	double	min_iy;
-	int		z_max;
-	int		z_min;
+	double	d_ix;
+	double	d_iy;
 }				t_map;
 
 typedef struct s_fdf

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 13:06:35 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 22:48:18 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/20 14:48:05 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	drawing(t_fdf *env, t_line prm, size_t i, size_t next)
 	size_t		count;
 	uint32_t	set_color;
 
-	point = env->map->point3D;
+	point = env->map->point3d;
 	count = 0;
 	set_color = point[i].color;
 	while (count <= prm.steps)
@@ -108,7 +108,7 @@ void	draw_line(t_fdf *env)
 
 	i = 0;
 	map = env->map;
-	point = env->map->point3D;
+	point = env->map->point3d;
 	while (i < (map->height * map->width) - 1)
 	{
 		if (point[i].y == point[i + 1].y && i < (map->width * map->height) - 1)

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 19:42:19 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 02:07:00 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/20 13:55:10 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ static int	chk_color_num(char *line)
 	i = 0;
 	line++;
 	if (line[0] != '0' || (line[1] != 'x' && line[1] != 'X'))
-		error_and_exit("invalid color value.\n");
+		error_and_exit("ERROR: Invalid color value.\n");
 	line = line + 2;
 	while (line[i] != ' ' && line[i] != '\n' && line[i] != '\0')
 	{
 		if (ft_isdigit(line[i]) == 0 && !('a' <= line[i] && line[i] <= 'f') && \
 		!('A' <= line[i] && line[i] <= 'F'))
-			error_and_exit("wrong color value.(expect 0 ~ 9 or a ~ f)\n");
+			error_and_exit("ERROR: Wrong color value.(expect 0~9 or a~f)\n");
 		i++;
 	}
 	if (6 < i)
-		error_and_exit("too many color value.\n");
+		error_and_exit("ERROR: Too many color value.\n");
 	return (i + 3);
 }
 
@@ -70,7 +70,7 @@ static void	chk_value(char *line)
 		while (line[i] != ' ' && line[i] != ',')
 		{
 			if (ft_isdigit(line[i]) == 0 && line[i] != '\n' && line[i] != '\0')
-				error_and_exit("value is invalid.(error at chk_num)\n");
+				error_and_exit("ERROR: Value is invalid.(error at chk_num)\n");
 			i++;
 			if (line[i] == '\n' || line[i] == '\0')
 				break ;
@@ -78,7 +78,7 @@ static void	chk_value(char *line)
 		if (line[i] == ',')
 		{
 			if (line[i - 1] == ' ' || line[i + 1] == ' ')
-				error_and_exit("value is invalid.(error at chk_num)\n");
+				error_and_exit("ERROR: Value is invalid.(error at chk_num)\n");
 			i = i + chk_color_num(&line[i]);
 		}
 	}
@@ -92,10 +92,10 @@ void	chk_valid(char	*filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		error_and_exit("failed open at chk_file_data.\n");
+		error_and_exit("ERROR: Failed open at chk_file_data.\n");
 	line = get_next_line(fd);
 	if (line == NULL)
-		error_and_exit("ERROR: no value in file.\n");
+		error_and_exit("ERROR: No value in file.\n");
 	chk_value(line);
 	first_line_col = count_col(line, ' ');
 	free(line);
@@ -106,9 +106,9 @@ void	chk_valid(char	*filename)
 			break ;
 		chk_value(line);
 		if (first_line_col != count_col(line, ' '))
-			error_and_exit("file data is invalid.\n");
+			error_and_exit("ERROR: The number of rows are not equal.\n");
 		free(line);
 	}
 	if (close(fd) == -1)
-		error_and_exit("failed close at chk_file_data.\n");
+		error_and_exit("ERROR: Failed close at chk_file_data.\n");
 }

@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 14:48:44 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/19 22:47:50 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/20 14:59:06 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	close_win(void *prm)
 	env = prm;
 	mlx_destroy_image(env->mlx, env->img);
 	mlx_destroy_window(env->mlx, env->win);
-	free(env->map->point3D);
+	free(env->map->point3d);
 	free(env->map);
 	free(env);
 	exit (0);
@@ -52,7 +52,7 @@ int	close_esc(int keycode, t_fdf *env)
 		return (0);
 	mlx_destroy_image(env->mlx, env->img);
 	mlx_destroy_window(env->mlx, env->win);
-	free(env->map->point3D);
+	free(env->map->point3d);
 	free(env->map);
 	free(env);
 	exit (0);
