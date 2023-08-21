@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:29:29 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/20 14:57:02 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/21 19:26:33 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	trans_to_iso(t_map *map)
 	{
 		point[i].iso_x = (point[i].x - point[i].y) * COS_30;
 		point[i].iso_y = \
-		-(point[i].z * SIN_30) + (point[i].x + point[i].y) * SIN_30;
+		-(point[i].z) + (point[i].x + point[i].y) * SIN_30;
 		i++;
 	}
 }
