@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 19:23:21 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/21 19:31:29 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/23 01:14:44 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_line
 	double	ly;
 	double	dx;
 	double	dy;
-	size_t	steps;
+	size_t	lenght;
 	int		lred;
 	int		lgreen;
 	int		lblue;
@@ -91,7 +91,7 @@ typedef struct s_fdf
 	int			bpp;
 	int			size_line;
 	int			endian;
-	int			steep;
+	// int			steep;
 	t_map		*map;
 }				t_fdf;
 

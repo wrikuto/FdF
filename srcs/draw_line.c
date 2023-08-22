@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 13:06:35 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/20 14:48:05 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/23 01:18:03 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	drawing(t_fdf *env, t_line prm, size_t i, size_t next)
 	point = env->map->point3d;
 	count = 0;
 	set_color = point[i].color;
-	while (count <= prm.steps)
+	while (count <= prm.lenght)
 	{
 		if (point[i].color != point[i + next].color)
 			set_color = add_diff_color(point[i].color, prm, count);
@@ -61,9 +61,7 @@ static void	set_color_dif(t_point *point, t_line *prm, size_t i, size_t next)
 {
 	uint32_t	color_s;
 	uint32_t	color_e;
-	int			i_steps;
 
-	i_steps = (int)prm->steps;
 	color_s = point[i].color;
 	color_e = point[i + next].color;
 	if (color_s == color_e)
@@ -76,11 +74,12 @@ static void	set_color_dif(t_point *point, t_line *prm, size_t i, size_t next)
 	prm->lred = (((color_e >> 16) & 0xFF) - ((color_s >> 16) & 0xFF));
 	prm->lgreen = (((color_e >> 8) & 0xFF) - ((color_s >> 8) & 0xFF));
 	prm->lblue = (((color_e) & 0xFF) - ((color_s) & 0xFF));
-	prm->dred = (double)prm->lred / (double)i_steps;
-	prm->dgreen = (double)prm->lgreen / (double)i_steps;
-	prm->dblue = (double)prm->lblue / (double)i_steps;
+	prm->dred = (double)prm->lred / (double)prm->lenght;
+	prm->dgreen = (double)prm->lgreen / (double)prm->lenght;
+	prm->dblue = (double)prm->lblue / (double)prm->lenght;
 }
 
+// lenghtはxまたはyの長さ。これでx, yを割って変化率を算出する。
 static void	set_params(t_fdf *env, t_point *point, size_t i, size_t next)
 {
 	t_line	prm;
@@ -90,11 +89,11 @@ static void	set_params(t_fdf *env, t_point *point, size_t i, size_t next)
 	prm.lx = ft_abs(point[i + next].screen_x - point[i].screen_x);
 	prm.ly = ft_abs(point[i + next].screen_y - point[i].screen_y);
 	if (prm.lx > prm.ly)
-		prm.steps = prm.lx;
+		prm.lenght = prm.lx;
 	else
-		prm.steps = prm.ly;
-	prm.dx = prm.lx / prm.steps;
-	prm.dy = prm.ly / prm.steps;
+		prm.lenght = prm.ly;
+	prm.dx = prm.lx / prm.lenght;
+	prm.dy = prm.ly / prm.lenght;
 	if (point[i].color != point[i + next].color)
 		set_color_dif(point, &prm, i, next);
 	drawing(env, prm, i, next);
