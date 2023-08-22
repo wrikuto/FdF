@@ -6,7 +6,7 @@
 /*   By: wrikuto <wrikuto@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 13:06:35 by wrikuto           #+#    #+#             */
-/*   Updated: 2023/08/23 01:18:03 by wrikuto          ###   ########.fr       */
+/*   Updated: 2023/08/23 01:18:41 by wrikuto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ static void	set_color_dif(t_point *point, t_line *prm, size_t i, size_t next)
 	prm->dblue = (double)prm->lblue / (double)prm->lenght;
 }
 
-// lenghtはxまたはyの長さ。これでx, yを割って変化率を算出する。
 static void	set_params(t_fdf *env, t_point *point, size_t i, size_t next)
 {
 	t_line	prm;
