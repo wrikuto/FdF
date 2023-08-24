@@ -12,4 +12,4 @@ This project is about creating a simple wireframemodel of a landscape.
 
 - .fdfのデータはすべての行の要素数が一致してないと無効なデータと見做されます
 - trans_data.cのtrans_to_iso関数の -(point[i].z)に任意の値を掛けると高さ調整ができます。(0 ~ 1の範囲)
-- このプロジェクトに含まれているminilibxはMac上でのみ機能します。linuxでは動きませんのでご注意を
+- このプロジェクトに含まれているminilibxはMac上でのみ機能します。linuxでは動きませんのでご注意を。
