@@ -2,6 +2,8 @@
 
 This project is about creating a simple wireframemodel of a landscape.
 
+ワイヤーフレームモデルを描画するプロジェクト
+
 ---
 # 使いかた
 
